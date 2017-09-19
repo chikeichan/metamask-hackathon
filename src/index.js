@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import metamask from 'metamascara';
+import EthJs from 'ethjs';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const ethereumProvider = metamask.createDefaultProvider({});
+const eth = new EthJs(ethereumProvider)
+
+
+ReactDOM.render(<App eth={eth} />, document.getElementById('root'));
